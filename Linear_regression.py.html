@@ -1,0 +1,194 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[3]:
+
+
+hi = "Hello World2"
+
+
+# In[4]:
+
+
+hi
+
+
+# In[5]:
+
+
+hi[:4]
+
+
+# In[6]:
+
+
+hi[4:]
+
+
+# In[7]:
+
+
+#Import Library
+#Import other necessary libraries like pandas, numpy...
+from sklearn import linear_model
+#Load Train and Test datasets
+#Identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train=input_variables_values_training_datasets
+y_train=target_variables_values_training_datasets
+x_test=input_variables_values_test_datasets
+# Create linear regression object
+linear = linear_model.LinearRegression()
+# Train the model using the training sets and check score
+linear.fit(x_train, y_train)
+linear.score(x_train, y_train)
+#Equation coefficient and Intercept
+print('Coefficient: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+#Predict Output
+predicted= linear.predict(x_test)
+
+
+# In[8]:
+
+
+#Import Library
+#Import other necessary libraries like pandas, numpy...
+from sklearn import linear_model
+#Load Train and Test datasets
+#Identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train= 1
+y_train= 2
+x_test= 3
+# Create linear regression object
+linear = linear_model.LinearRegression()
+# Train the model using the training sets and check score
+linear.fit(x_train, y_train)
+linear.score(x_train, y_train)
+#Equation coefficient and Intercept
+print('Coefficient: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+#Predict Output
+predicted= linear.predict(x_test)
+
+
+# In[9]:
+
+
+#Import Library
+#Import other necessary libraries like pandas, numpy...
+from sklearn import linear_model
+#Load Train and Test datasets
+#Identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train= 1
+y_train= -1
+x_test= 1
+# Create linear regression object
+linear = linear_model.LinearRegression()
+# Train the model using the training sets and check score
+linear.fit(1, -1)
+linear.score(1, -1)
+#Equation coefficient and Intercept
+print('Coefficient: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+#Predict Output
+predicted= linear.predict(x_test)
+
+
+# In[10]:
+
+
+#Import Library
+#Import other necessary libraries like pandas, numpy...
+from sklearn import linear_model
+#Load Train and Test datasets
+#Identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train= [2,5,7,9]
+y_train= [1,0,4,8]
+x_test=[7,2,4,8]
+# Create linear regression object
+linear = linear_model.LinearRegression()
+# Train the model using the training sets and check score
+linear.fit(x_train, y_train)
+linear.score(x_train, y_train)
+#Equation coefficient and Intercept
+print('Coefficient: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+#Predict Output
+predicted= linear.predict(x_test)
+
+
+# In[11]:
+
+
+x = 5
+y = 3
+
+x+y
+
+
+# In[12]:
+
+
+import tensorflow as tf
+version = str(tf.__version__)
+'This TF is versi' + version
+
+
+# In[13]:
+
+
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn import linear_model
+import matplotlib.pyplot as plt
+
+
+# In[15]:
+
+
+iris=load_iris()
+
+
+# In[17]:
+
+
+iris['target']
+
+
+# In[18]:
+
+
+iris['DESCR']
+
+
+# In[19]:
+
+
+iris
+
+
+# In[20]:
+
+
+df_x=pd.DataFrame(iris.data,columns= iris.feature_names)
+df_y=pd.DataFrame(iris.target)
+
+
+# In[22]:
+
+
+regr=linear_model.LinearRegression()
+regr.fit(df_x, df_y)
+
+
+# In[24]:
+
+
+print(regr.predict(df_x[-10:]))
+
+
+# In[ ]:
+
+
+
+
