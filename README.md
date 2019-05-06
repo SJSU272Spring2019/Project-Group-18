@@ -1,2 +1,21 @@
-# CMPE272_Group_18_Spring_2019_Project_DNA disease prediction webapp through ML 
+# CMPE272_Group_18_Spring_2019_Project_ disease prediction webapp through ML 
 Final Project for CMPE_272 Spring 2019 by Group 18
+
+Student Names:
+Odkhuu Batmunk, Swati Shukla, Vanushri Rawat
+
+Team Name: Group 18
+Approved Project Idea: disease prediction webapp 
+
+Description: Every day doctors analyse symptoms and medical reocrds of people, that helps them to predict and treat the patients. We created a system to help doctors to accurately predict several diseases based on the large datasets of medical information available without going thorugh huge medical records and deep analysis. The system is user friendly and lets the doctor enter general information, symptoms as well as data provided by medical reports, as a result the system predicts the disease and suggests the likely hood of a disease. As of now the system works with small but real data set, going forward we plan to inhance the dataset and also make the system self sustainable by adding the new data to the datset.
+The application is also for the patients to login and have an analysis done by a bot. They interact with a chatbot who is the first point of contact and initial level of disease prediction. According to the bot's suggestion the patient can decide to actually visit a doctor or not. 
+
+Methodology:
+
+Train the machine for prediction of disease based on the dataset.
+
+Dataset: https://dataplatform.cloud.ibm.com/projects/4039877c-c2aa-4f5d-93f2-f7c1e85c776d/assets?context=analytics
+
+Professor's Comment: 
+
+Design Mockup: 
