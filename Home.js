@@ -1,55 +1,133 @@
-import {fetch} from 'wix-fetch';  
+// For full API documentation, including code examples, visit http://wix.to/94BuAAs
+import { getHeartPrediction } from 'backend/disease.jsw';
+import { getDiabetesPrediction } from 'backend/disease.jsw';
+import { getArteryPrediction } from 'backend/disease.jsw';
+import { getAnxietyPrediction } from 'backend/disease.jsw';
 
-export function getToken() {
+//var heart1 = 0;
+//var heart2 = 0;
 
-    
-    //const tokenHeader = "Basic " + btoa(('29c43a7d-ed42-416a-87c9-c8a69ef064f6' + ":" + 'b085fa23-0fa2-4ce3-b172-7f885041ad75'));
-            
+//$w.onReady(function () {
+//TODO: write your page related code here...
+//});
 
-  const url = 'https://us-south.ml.cloud.ibm.com/v3/identity/token';
-  console.log("Url: " + url);	
-  
-  return fetch(url, {
-            method: 'get',
-            headers: {
-				'Authorization': 'Basic MjljNDNhN2QtZWQ0Mi00MTZhLTg3YzktYzhhNjllZjA2NGY2OmIwODVmYTIzLTBmYTItNGNlMy1iMTcyLTdmODg1MDQxYWQ3NQ==',
-				'Content-Type': 'application/json;charset=UTF-8',
+export function predict_click_1(event, $w) {
+
+	// console.log("Retrieving information for " + $w("#age").value);
+	$w("#result1").text = "Retrieving information";
+	console.log("age =" + $w("#age").value);
+	console.log("sex =" + $w("#sex").value);
+	console.log("cp = " + $w("#cp").value);
+	console.log("trestbp =" + $w("#trestbp").value);
+	console.log("chol = " + $w("#chol").value);
+	console.log("fbs = " + $w("#fbs").value);
+	var input = {
+		fields: ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"],
+		values: [
+			[parseInt($w("#age").value, 10),
+				parseInt($w("#sex").value, 10),
+				parseInt($w("#cp").value, 10),
+				parseInt($w("#trestbp").value, 10),
+				parseInt($w("#chol").value, 10),
+				parseInt($w("#fbs").value, 10),
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				// 56, 1, 2,120,350,0,null,null,null,null,null,null
+			],
+		],
+	};
+
+	// call for heart disease
+	getHeartPrediction(input)
+		.then(json => {
+
+			var heart1 = JSON.stringify(json.values[0][15][0]);
+			var heart2 = JSON.stringify(json.values[0][15][1]);
+
+			let probabilityH = {
+				1: [heart1 * 100, heart2 * 100]
+			};
+
+			if (parseInt(JSON.stringify(json.values[0][16])) == 0) {
+				$w("#result1").text = "Likely to have Heart Disease";
+				
+			} else {
+				$w("#result1").text = "Not likely to have Heart Disease";
 			}
-        }
-    )
-    .then(response => response.json())
-    .catch(err => console.log(err));
-    //console.log("TOKENNN === "+response.json());
-}
+            $w("#html1").postMessage(probabilityH[1]);
+			console.log('heart= ' + heart1);
+			console.log('heart= ' + heart2);
+		});
 
+	// call for diabetes
+	getDiabetesPrediction(input)
+		.then(json => {
 
-export function getHeartPrediction(input) {
-    const url = 'https://us-south.ml.cloud.ibm.com/v3/wml_instances/ecd408d9-f769-456d-9dd3-e90da87aaeeb/deployments/6f355de3-b9e1-4e33-aedc-65f039a1a338/online';
-    console.log("Url: " + url);
+			var diabetes1 = JSON.stringify(json.values[0][15][0]);
+			var diabetes2 = JSON.stringify(json.values[0][15][1]);
 
-    //getToken();
-    //console.log("token: " + JSON.stringify(getToken()));
+			let probabilityD = {
+				1: [diabetes1 * 100, diabetes2 * 100]
+			};
 
-    return getToken()
-    .then(output => {
-        const token = output.token;
-        //console.log('Using Token: ' + token)
-        console.log('Input == '+JSON.stringify(input))
-        return fetch(url, {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + token,
-                'Content-Type': 'application/json;charset=UTF-8',
-            },
-            'body': JSON.stringify(input),
-        })
-        .then((httpResponse) => {
-            if (httpResponse.ok) {
-                return httpResponse.json();
-            } else {
-                return Promise.reject("Fetch did not succeed");
-            }
-        });
-    });
+			if (parseInt(JSON.stringify(json.values[0][16])) == 0) {
+				$w("#result2").text = "Likely to have Diabetes";
+				
+			} else {
+				$w("#result2").text = "Not likely to have Diabetes";
+			}
+            $w("#html2").postMessage(probabilityD[1]);
+			console.log('diab= ' + diabetes1);
+			console.log('diab= ' + diabetes2);
+		});
+
+	// call for diabetes
+	getArteryPrediction(input)
+		.then(json => {
+
+			var artery1 = JSON.stringify(json.values[0][15][0]);
+			var artery2 = JSON.stringify(json.values[0][15][1]);
+
+			let probabilityA = {
+				1: [artery1 * 100, artery2 * 100]
+			};
+
+			if (parseInt(JSON.stringify(json.values[0][16])) == 0) {
+				$w("#result3").text = "Likely to have Artery Disorder";
+				
+			} else {
+				$w("#result3").text = "Not likely to have Artery Disorder";
+			}
+            $w("#html3").postMessage(probabilityA[1]);
+			console.log('art= ' + artery1);
+			console.log('art= ' + artery2);
+		});
+
+	// call for diabetes
+	getAnxietyPrediction(input)
+		.then(json => {
+
+			var anxiety1 = JSON.stringify(json.values[0][15][0]);
+			var anxiety2 = JSON.stringify(json.values[0][15][1]);
+
+			let probabilityAx = {
+				1: [anxiety1 * 100, anxiety2 * 100]
+			};
+
+			if (parseInt(JSON.stringify(json.values[0][16])) == 0) {
+				$w("#result4").text = "Likely to have Anxiety or Depression";
+				
+			} else {
+				$w("#result4").text = "Not likely to have Anxiety or Depression";
+			}
+            $w("#html4").postMessage(probabilityAx[1]);
+			console.log('anxiety= ' + anxiety1);
+			console.log('anxiety= ' + anxiety2);
+		});
+
 }
