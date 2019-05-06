@@ -26,4 +26,4 @@ The application is also for the patients to login and have an analysis done by a
 
 **Professor's Comment:**
 
-**Design Mockup: **
+**Design Mockup:**
