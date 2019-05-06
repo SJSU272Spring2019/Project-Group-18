@@ -2,9 +2,9 @@
 Final Project for CMPE_272 Spring 2019 by Group 18 
 
 **Student Names:**
-Odkhuu Batmunk
-Swati Shukla
-Vanushri Rawat
+Odkhuu Batmunk; 
+Swati Shukla; 
+Vanushri Rawat; 
 
 **Team Name: Group 18**
 Approved Project Idea: disease prediction webapp 
