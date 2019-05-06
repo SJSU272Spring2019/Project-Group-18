@@ -1,5 +1,5 @@
-# CMPE272_Group_18_Spring_2019_Project_ disease prediction webapp through ML 
-Final Project for CMPE_272 Spring 2019 by Group 18
+# CMPE272_Group_18_Spring_2019_Project_ disease prediction webapp through ML # Heading 1 #
+Final Project for CMPE_272 Spring 2019 by Group 18 # Heading 1 #
 
 Student Names:
 Odkhuu Batmunk, Swati Shukla, Vanushri Rawat
