@@ -1,4 +1,4 @@
-# CMPE272_Group_18_Spring_2019_Project_ disease prediction webapp through ML
+# CMPE272_Group_18_Spring_2019_Project_Disease_Predictor_Website_through_ML
 Final Project for CMPE_272 Spring 2019 by Group 18 
 
 **Student Names:**
